@@ -534,4 +534,37 @@ public static class SpecificationBuilderExtensions
 
         return specificationBuilder;
     }
+
+    /// <summary>
+    /// The query will ignore the defined global auto includes
+    /// </summary>
+    /// <remarks>
+    /// for more info: https://learn.microsoft.com/en-us/ef/core/querying/related-data/eager
+    /// </remarks>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="specificationBuilder"></param>
+    public static ISpecificationBuilder<T> IgnoreAutoIncludes<T>(
+        this ISpecificationBuilder<T> specificationBuilder) where T : class
+        => IgnoreAutoIncludes(specificationBuilder, true);
+
+    /// <summary>
+    /// The query will ignore the defined global auto includes
+    /// </summary>
+    /// <remarks>
+    /// for more info: https://learn.microsoft.com/en-us/ef/core/querying/related-data/eager
+    /// </remarks>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="specificationBuilder"></param>
+    /// <param name="condition">If false, the setting will be discarded.</param>
+    public static ISpecificationBuilder<T> IgnoreAutoIncludes<T>(
+        this ISpecificationBuilder<T> specificationBuilder,
+        bool condition) where T : class
+    {
+      if (condition)
+      {
+        specificationBuilder.Specification.IgnoreAutoIncludes = true;
+      }
+
+      return specificationBuilder;
+    }
 }

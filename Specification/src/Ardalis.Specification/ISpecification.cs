@@ -138,6 +138,14 @@ public interface ISpecification<T>
     bool IgnoreQueryFilters { get; }
 
     /// <summary>
+    /// Specifies that the current Entity Framework LINQ query should not have any model-level eager loaded navigations applied.
+    /// </summary>
+    /// <remarks>
+    /// For more info: https://learn.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.ignoreautoincludes
+    /// </remarks>
+    bool IgnoreAutoIncludes { get; }
+
+    /// <summary>
     /// Applies the query defined within the specification to the given objects.
     /// This is specially helpful when unit testing specification classes
     /// </summary>

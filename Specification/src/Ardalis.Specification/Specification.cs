@@ -122,4 +122,7 @@ public class Specification<T> : ISpecification<T>
 
     /// <inheritdoc/>
     public bool IgnoreQueryFilters { get; internal set; } = false;
+
+    /// <inheritdoc/>
+    public bool IgnoreAutoIncludes { get; internal set; } = false;
 }

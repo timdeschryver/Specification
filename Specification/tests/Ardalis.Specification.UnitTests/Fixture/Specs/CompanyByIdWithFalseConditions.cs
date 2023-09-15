@@ -20,6 +20,7 @@ public class CompanyByIdWithFalseConditions : Specification<Company>, ISingleRes
             .AsNoTrackingWithIdentityResolution(false)
             .AsSplitQuery(false)
             .IgnoreQueryFilters(false)
+            .IgnoreAutoIncludes(false)
             .Search(x => x.Name!, "asd", false)
             .EnableCache(nameof(CompanyByIdWithFalseConditions), false, id);
     }
